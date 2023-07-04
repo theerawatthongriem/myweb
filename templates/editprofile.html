@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock %}
+{% block head %}
+{% load django_bootstrap5 %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+        </div>
+        <div class="col" style="margin-top: 1cm;" align="center">
+            <div class="card-body text-light bgr" style="border-radius: 10px; height: 4rem; width: 14rem;">
+                <h4>แก้ไขข้อมูลส่วนตัว</h4>
+            </div>
+            <div style="margin-top: 1cm;">
+                {% if user.profile.avatar %}
+                <img src="{{user.profile.avatar.url }}" alt="" height="200px">
+                {% else %}
+                <img src="https://themewagon.github.io/stisla-1/assets/img/avatar/avatar-1.png" alt="" height="200px">
+                {% endif %}
+                <div class="h5" style="margin-top: 1cm;">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row" align="left">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="small mb-2">ชื่อผู้ใช้</label>
+                                    {{ user_form.username }}<br>
+                                    <label class="small mb-2">ชื่อ</label>
+                                    {{ user_form.first_name }}<br>
+                                    <label class="small mb-2">นามสกุล</label>
+                                    {{ user_form.last_name }}<br>
+                                    <label class="small mb-2">อีเมล</label>
+                                    {{ user_form.email }}<br>
+                                    <label class="small mb-2">รูปประจำตัว</label>
+                                    {{ profile_form.avatar }}<br>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-lg">บันทึกการเปลี่ยนแปลง</button>
+                        <button type="reset" class="btn btn-danger btn-lg">รีเซ็ต</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}

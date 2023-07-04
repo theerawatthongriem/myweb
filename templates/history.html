@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}History{% endblock %}
+{% block head %}
+{% load django_bootstrap5 %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+        </div>
+        <div class="" style="margin-top: 1cm;" align="center">
+            <div class="card-body text-light bgr" style="border-radius: 10px; height: 4rem; width: 14rem;">
+                <h4>ประวัติเข้าใช้ระบบ</h4>
+            </div>
+            <div style="margin-top: 1cm;">
+                <div class="h5" style="margin-top: 2cm;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">ชื่อผู้ใช้</th>
+                              <th scope="col">ชื่อ-นามสกุล</th>
+                              <th scope="col">เข้าใช้ระบบล่าสุด</th>
+                              <th scope="col">วันเข้าร่วม</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% if user %}
+                            <tr>
+                              <th scope="row">{{ user.username}}</th>
+                              <td>{{ user.first_name}} {{ user.last_name }}</td>
+                              <td>{{ user.last_login }}</td>
+                              <td>{{ user.date_joined }}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}

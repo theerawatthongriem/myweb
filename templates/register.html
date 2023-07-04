@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block head %}
+{% load django_bootstrap5 %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+    </div>
+    <div class="col" style="margin-top: 2.5cm;">
+      <div class="card-body text-light tt" align="center" style="border-radius: 10px;">
+        <h3>ระบบลงทะเบียน </h3>
+      </div>
+      <div style="margin-top: 1cm;">
+        <form method="POST" novalidate>
+          {% csrf_token %}
+          
+          {{ form.username}}<br>
+          {{ form.first_name}}<br>
+          {{ form.last_name}}<br>
+          {{ form.email}}<br>
+          {{ form.password1}}<br>
+          {{ form.password2}}<br>
+
+          <div align="center">
+            <button class="btn btn-success" style="font-size: 1.1vw;" type="submit">ลงทะเบียน</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+{% endblock %}
