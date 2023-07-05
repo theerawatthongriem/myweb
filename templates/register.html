@@ -5,12 +5,12 @@
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 
-<div class="container">
+<div class="container" align="center">
   <div class="row align-items-start">
     <div class="col">
     </div>
     <div class="col" style="margin-top: 2.5cm;">
-      <div class="card-body text-light tt" align="center" style="border-radius: 10px;">
+      <div class="card-body text-light bgr" align="center" style="border-radius: 10px;">
         <h3>ระบบลงทะเบียน </h3>
       </div>
       <div style="margin-top: 1cm;">
@@ -25,9 +25,11 @@
           {{ form.password2}}<br>
 
           <div align="center">
-            <button class="btn btn-success" style="font-size: 1.1vw;" type="submit">ลงทะเบียน</button>
+            <button class="btn btn-primary" style="font-size: 1.1vw;" type="submit">ลงทะเบียน</button>
           </div>
         </form>
+        <br>
+        <a href="/login">มีบัญชีแล้ว เข้าสู่ระบบที่นี่</a>
       </div>
     </div>
     <div class="col">

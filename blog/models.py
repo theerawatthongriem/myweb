@@ -10,5 +10,3 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-class DataPredict(models.Model):
-    student_id = models.CharField(max_length=150)

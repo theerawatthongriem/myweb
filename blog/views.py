@@ -6,9 +6,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import Profile
 from .forms import *
 
+def home(req):
+    return render(req, 'home.html')
+
 def base(req):
     return render(req, 'base.html')
-
 
 def reg(request):
     if request.method == 'GET':
